@@ -311,7 +311,7 @@
 <div id="customAlert" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 hidden p-4"><div class="custom-alert max-w-sm w-full p-6 text-center"><i class="fas fa-bell text-teal-500 text-4xl mb-3"></i><p id="alertMessage" class="text-gray-800 dark:text-white mb-4"></p><button id="alertOkBtn" class="btn-premium px-6 py-2">Got it</button></div></div>
 
 <script>
-    const CONFIG = { app: { minWithdrawal: 2000, dailyAdLimit: 20, adReward: 10, dailyJobReward: 10, referralBonus: 50 }, adsgram: { enabled: true, blockId: "int-25417" }, social: { telegram: "https://t.me/+tLB334Ko71tjY2Y1" }, supportUrl: "https://t.me/smartmoneypro_bot", dailyJobs: 20 };
+    const CONFIG = { app: { minWithdrawal: 2000, dailyAdLimit: 20, adReward: 10, dailyJobReward: 10, referralBonus: 50 }, adsgram: { enabled: true, blockId: "int-32894" }, social: { telegram: "https://t.me/+tLB334Ko71tjY2Y1" }, supportUrl: "https://t.me/smartmoneypro_bot", dailyJobs: 20 };
     let currentUser = null, userData = null, adsGramCount = 0, adsGramReady = false, AdController = null, isAdShowing = false;
     const tg = window.Telegram.WebApp;
     function showAlert(m) { const a=document.getElementById('customAlert'); document.getElementById('alertMessage').textContent=m; a.classList.remove('hidden'); document.getElementById('alertOkBtn').onclick=()=>a.classList.add('hidden'); }
