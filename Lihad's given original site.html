@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>NeonRushEarn | Flash Earnings • Instant Withdraw</title>
+    
+    <!-- Telegram WebApp Script -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    
+    <!-- AdsGram Ad Script -->
+    <script src="https://sad.adsgram.ai/js/sad.min.js"></script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800;900&family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', 'Hind Siliguri', sans-serif;
+            background: #f4f9ff;
+            color: #1a1e2b;
+            min-height: 100vh;
+            padding-bottom: 85px;
+            transition: background 0.3s, color 0.2s;
+        }
+        body.dark {
+            background: linear-gradient(135deg, #0f0c29, #1a1a3e, #12122c);
+            color: #eef2ff;
+        }
+        body.dark .glass-card {
+            background: rgba(15, 25, 45, 0.75);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(0, 255, 200, 0.25);
+        }
+        body.dark .stat-card {
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(8px);
+        }
+        body.dark .task-card {
+            background: rgba(20, 30, 55, 0.7);
+            border-color: rgba(0, 255, 200, 0.2);
+        }
+        body.dark .nav-bar {
+            background: rgba(10, 15, 35, 0.95);
+            backdrop-filter: blur(20px);
+            border-top-color: #00ffcc22;
+        }
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: radial-gradient(circle at 30% 20%, #fff6e5, #ffefd6, #ffe0bb);
+            background-size: 200% 200%;
+            animation: softGlow 14s ease infinite;
+        }
+        body.dark .animated-bg {
+            background: radial-gradient(circle at 30% 20%, #13102b, #1e1845, #0f0c2a);
+            animation: darkGlow 12s ease infinite;
+        }
+        @keyframes softGlow {
+            0% { background: radial-gradient(circle at 30% 20%, #fff6e5, #ffefd6, #ffe0bb);}
+            100% { background: radial-gradient(circle at 70% 80%, #fff0df, #ffe8cb, #ffdcb0);}
+        }
+        @keyframes darkGlow {
+            0% { background: radial-gradient(circle at 30% 20%, #13102b, #1e1845, #0f0c2a);}
+            100% { background: radial-gradient(circle at 70% 80%, #0d0b28, #1a154f, #0e0c30);}
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(0, 255, 200, 0.4);
+            border-radius: 36px;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08);
+            transition: all 0.25s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-3px);
+            border-color: #00ffcc;
+            background: rgba(255, 255, 255, 0.85);
+        }
+        body.dark .glass-card:hover {
+            background: rgba(25, 35, 65, 0.85);
+        }
+        .btn-premium {
+            background: linear-gradient(105deg, #00ffcc, #00b894);
+            border: none;
+            color: #0a0a2a;
+            font-weight: 800;
+            border-radius: 60px;
+            box-shadow: 0 6px 14px rgba(0, 255, 200, 0.35);
+            transition: all 0.2s;
+        }
+        .btn-premium:active { transform: scale(0.97); }
+        .btn-premium:hover { transform: scale(1.02); box-shadow: 0 10px 22px rgba(0, 255, 200, 0.5); }
+        .btn-secondary {
+            background: rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            border-radius: 60px;
+            font-weight: 600;
+            color: #1f2a3a;
+        }
+        body.dark .btn-secondary {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(0, 255, 200, 0.3);
+            color: #ccfffa;
+        }
+        .balance-card {
+            background: linear-gradient(125deg, #a8ffec, #00ffcc);
+            border-radius: 36px;
+            border: 1px solid #00ffccaa;
+            box-shadow: 0 20px 30px -12px rgba(0, 255, 200, 0.35);
+            color: #0a2a2a;
+        }
+        body.dark .balance-card {
+            background: linear-gradient(125deg, #00ccaa, #00997a);
+            color: #ffffff;
+        }
+        .stat-card {
+            background: rgba(255, 248, 235, 0.85);
+            backdrop-filter: blur(8px);
+            border-radius: 28px;
+            border: 1px solid rgba(0, 255, 200, 0.3);
+        }
+        .task-card {
+            background: rgba(255, 250, 245, 0.85);
+            backdrop-filter: blur(8px);
+            border-radius: 26px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .task-card:hover { transform: translateX(6px); border-color: #00ffcc; background: rgba(255, 255, 245, 0.95); }
+        .nav-bar {
+            background: rgba(255, 245, 235, 0.95);
+            backdrop-filter: blur(18px);
+            border-top: 1px solid rgba(0, 255, 200, 0.4);
+            border-radius: 32px 32px 0 0;
+        }
+        .nav-item.active {
+            background: linear-gradient(135deg, #00ffcc, #00997a);
+            box-shadow: 0 4px 12px rgba(0, 255, 200, 0.4);
+        }
+        .nav-item.active i, .nav-item.active span { color: #0a0a2a !important; font-weight: 700; }
+        .input-premium {
+            background: rgba(255, 245, 235, 0.95);
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            border-radius: 60px;
+            padding: 14px 20px;
+            transition: all 0.2s;
+        }
+        .input-premium:focus { outline: none; border-color: #00ffcc; box-shadow: 0 0 0 3px rgba(0, 255, 200, 0.2); background: white; }
+        body.dark .input-premium { background: #1e293bb3; border-color: #475569; color: white; }
+        body.dark .input-premium:focus { background: #0f172a; border-color: #00ffcc; }
+        .badge-premium {
+            background: linear-gradient(135deg, #00ffcc, #00997a);
+            border-radius: 40px;
+            padding: 4px 14px;
+            font-size: 11px;
+            font-weight: 800;
+            color: #0a0a2a;
+        }
+        .ad-status {
+            position: fixed;
+            bottom: 100px;
+            left: 20px;
+            right: 20px;
+            background: #00ffcc;
+            color: #0a0a2a;
+            text-align: center;
+            padding: 14px;
+            border-radius: 60px;
+            font-weight: 700;
+            z-index: 1100;
+            animation: slideUp 0.3s;
+        }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px);} to { opacity: 1; transform: translateY(0);} }
+        .support-float {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 54px;
+            height: 54px;
+            background: linear-gradient(135deg, #00ffcc, #00997a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: 0 8px 20px rgba(0,255,200,0.5);
+            border: 2px solid #ffffffdd;
+        }
+        .job-btn { background: linear-gradient(105deg, #00ffcc, #00b894); border-radius: 40px; font-weight: bold; color: #0a0a2a; }
+        .job-btn-disabled { background: #6b7280; opacity: 0.7; cursor: not-allowed; color: white; }
+        .custom-alert {
+            background: rgba(255, 250, 245, 0.98);
+            backdrop-filter: blur(20px);
+            border-radius: 36px;
+            border: 1px solid #00ffcc;
+        }
+        body.dark .custom-alert { background: #1f2937ee; border-color: #00ffcc; color: white; }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #ccfff2; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: #00ffcc; border-radius: 10px; }
+        .page { display: none; animation: fadePage 0.4s ease; }
+        .page.active-page { display: block; }
+        @keyframes fadePage { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+        .divider { height: 1px; background: linear-gradient(90deg, transparent, #00ffcc, transparent); margin: 16px 0; }
+    </style>
+</head>
+<body>
+<div class="animated-bg"></div>
+<div id="appContainer" class="max-w-md mx-auto px-4 py-4 relative">
+    <!-- Header Premium - New Name: NeonRush Earn -->
+    <header class="flex items-center justify-between mb-6">
+        <div>
+            <h1 class="text-3xl font-black bg-gradient-to-r from-teal-700 to-green-700 bg-clip-text text-transparent">⚡ NeonRush Earn</h1>
+            <p class="text-teal-800/70 text-xs font-medium mt-1">Flash Earnings • Instant Withdraw</p>
+        </div>
+        <div class="flex items-center gap-3">
+            <button id="darkModeToggle" class="w-10 h-10 rounded-full bg-white/70 shadow-md flex items-center justify-center backdrop-blur text-teal-700">
+                <i class="fas fa-moon text-lg"></i>
+            </button>
+            <div id="notificationBell" class="relative cursor-pointer w-10 h-10 rounded-full bg-white/70 shadow-md flex items-center justify-center">
+                <i class="fas fa-bell text-teal-700 text-lg"></i>
+                <div id="notificationDot" class="absolute top-1 right-1 w-2.5 h-2.5 bg-red-500 rounded-full hidden"></div>
+            </div>
+            <div onclick="navigateTo('profile')" class="cursor-pointer w-10 h-10 rounded-full bg-gradient-to-r from-teal-500 to-green-500 flex items-center justify-center shadow-lg">
+                <i class="fas fa-user text-white text-lg"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- HOME PAGE -->
+        <div id="home-page" class="page active-page space-y-5">
+            <div class="balance-card p-5">
+                <div class="flex justify-between">
+                    <div><p class="text-teal-900/70 text-sm">💰 Total Balance</p><p class="text-4xl font-extrabold">৳<span id="coinBalance">0</span></p><p class="text-teal-800/60 text-xs">≈ $<span id="usdBalance">0.00</span></p></div>
+                    <div class="text-right"><div class="badge-premium">⚡ RUSH MODE</div><p class="text-teal-800/50 text-xs mt-2">daily limit 20</p></div>
+                </div>
+                <div class="divider"></div>
+                <div class="flex justify-between items-center">
+                    <div class="flex gap-2 items-center"><i class="fas fa-chart-line text-teal-800"></i><span class="text-teal-800/70 text-sm">Today's Rush</span><span class="font-bold">৳<span id="todayEarning">0</span></span></div>
+                    <button id="homeWithdrawBtn" class="btn-premium px-5 py-2 text-sm font-semibold">Withdraw <i class="fas fa-arrow-right ml-1"></i></button>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+                <div class="stat-card p-3 text-center"><i class="fas fa-briefcase text-green-600 text-xl mb-1"></i><p class="text-teal-800/60 text-xs">Jobs Done</p><p class="text-xl font-black"><span id="jobsDoneCount">0</span></p></div>
+                <div class="stat-card p-3 text-center"><i class="fas fa-eye text-teal-600 text-xl mb-1"></i><p class="text-teal-800/60 text-xs">Ads Watched</p><p class="text-xl font-black"><span id="adsWatchedCount">0</span>/<span id="dailyLimit">20</span></p></div>
+            </div>
+            <div><div class="flex justify-between mb-3"><h2 class="text-lg font-extrabold">✨ Flash Missions</h2><p class="text-teal-700/60 text-xs">left: <span id="adsLeftCount">20</span></p></div>
+            <div class="space-y-3">
+                <div class="task-card p-4 flex justify-between items-center"><div class="flex gap-3"><div class="w-12 h-12 rounded-full bg-gradient-to-r from-teal-500 to-green-500 flex items-center justify-center"><i class="fas fa-video text-white text-xl"></i></div><div><h3 class="font-black">Watch AdsGram Video</h3><p class="text-teal-700/50 text-xs">Rewarded • ৳10 each</p></div></div><button id="watchAdBtn" class="btn-premium px-5 py-2 text-sm font-semibold">Watch <i class="fas fa-play ml-1"></i></button></div>
+                <div class="task-card p-4 flex justify-between items-center"><div class="flex gap-3"><div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center"><i class="fas fa-bolt text-white text-xl"></i></div><div><h3 class="font-black">⚡ 20x Rewards Jobs</h3><p class="text-teal-700/50 text-xs">Each ৳10 + cooldown</p></div></div><button onclick="navigateTo('daily-jobs')" class="btn-secondary px-5 py-2 text-sm font-semibold">Start <i class="fas fa-arrow-right ml-1"></i></button></div>
+                <div class="task-card p-4 flex justify-between items-center"><div class="flex gap-3"><div class="w-12 h-12 rounded-full bg-gradient-to-r from-sky-500 to-indigo-500 flex items-center justify-center"><i class="fas fa-bullhorn text-white text-xl"></i></div><div><h3 class="font-black">Join Telegram Pulse</h3><p class="text-teal-700/50 text-xs">bonus alerts</p></div></div><button id="telegramJoinBtn" class="btn-secondary px-5 py-2 text-sm font-semibold">Join <i class="fab fa-telegram ml-1"></i></button></div>
+            </div></div>
+            <div class="glass-card p-4"><div class="flex justify-between mb-2"><h3 class="font-black">👥 Referral Blast</h3><span class="badge-premium">+৳50 per referral</span></div><p class="text-teal-800/60 text-xs mb-3">Invite friends, earn 50৳ when they join!</p><div class="flex gap-2"><input type="text" id="referralLink" readonly class="input-premium flex-1 text-sm font-mono"><button id="copyReferralBtn" class="btn-premium px-4 py-2"><i class="fas fa-copy"></i></button></div></div>
+        </div>
+
+        <!-- WALLET PAGE -->
+        <div id="wallet-page" class="page space-y-5">
+            <h2 class="text-2xl font-black text-center bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">💵 Cash Vault</h2>
+            <div class="glass-card p-5"><h3 class="font-black mb-4">Withdraw Funds</h3><div class="balance-card p-4 mb-4 text-center"><p class="text-teal-900/80">Available Balance</p><p class="text-3xl font-black">৳<span id="walletBalance">0</span></p><p class="text-teal-800/60 text-xs">Min: ৳2000</p></div><input type="number" id="withdrawAmount" placeholder="Amount (৳)" class="input-premium w-full mb-3"><select id="withdrawMethod" class="input-premium w-full mb-3"><option value="">Select Method</option><option value="Bkash">bKash</option><option value="Nagad">Nagad</option><option value="Rocket">Rocket</option></select><div id="paymentDetailsContainer"></div><button id="withdrawSubmitBtn" class="btn-premium w-full py-3 mt-3 font-bold">Request Withdrawal</button></div>
+            <div class="glass-card p-5"><h3 class="font-black flex gap-2"><i class="fas fa-clock"></i> Withdrawal History</h3><div id="withdrawalHistoryList" class="space-y-2 max-h-64 overflow-y-auto mt-2"></div></div>
+        </div>
+
+        <!-- PROFILE PAGE with Policy -->
+        <div id="profile-page" class="page space-y-5">
+            <h2 class="text-2xl font-black text-center bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">🌟 My Profile</h2>
+            <div class="glass-card p-6 text-center"><img id="profilePhoto" src="https://placehold.co/100x100/00ccaa/white?text=NR" class="w-24 h-24 rounded-full mx-auto border-4 border-teal-400 shadow-xl"><h3 id="profileName" class="text-xl font-black mt-3">User</h3><p id="profileUsername" class="text-teal-800/60">@handle</p><div class="badge-premium inline-block mt-2">🔥 Rush Earner</div></div>
+            <div class="glass-card p-5"><h3 class="font-black mb-3">Account Info</h3><div class="space-y-2"><div class="flex justify-between py-2 border-b border-teal-200"><span>Joined Via</span><span id="joinedVia">Telegram</span></div><div class="flex justify-between py-2 border-b border-teal-200"><span>User ID</span><span id="profileUserId">-</span></div><div class="flex justify-between py-2"><span>Total Earned</span><span id="totalEarned" class="text-green-700 font-black">৳0</span></div></div></div>
+            <div class="glass-card p-5 space-y-2"><h3 class="font-black flex gap-2"><i class="fas fa-shield-alt text-teal-500"></i> Privacy & Policy</h3><div class="text-xs text-teal-800/70 space-y-1"><p>✅ <strong>Data Security:</strong> Your data is encrypted, never shared.</p><p>✅ <strong>Fair Earning:</strong> 20 ads/day, ৳10 each. Valid views only.</p><p>✅ <strong>Withdrawal Terms:</strong> Min ৳2000, processed within 24-48h.</p><p>✅ <strong>No Fraud:</strong> Automated scripts = permanent ban.</p><p class="pt-1 text-center text-[10px]">Last updated: May 2026 | NeonRush Earn</p></div></div>
+            <div id="adminAccessPanel" class="hidden"><button onclick="navigateTo('admin')" class="btn-premium w-full py-3">Admin Panel</button></div>
+        </div>
+
+        <!-- DAILY JOBS PAGE -->
+        <div id="daily-jobs-page" class="page space-y-4">
+            <div class="flex items-center justify-between"><button onclick="navigateTo('home')" class="btn-secondary px-4 py-2 text-sm"><i class="fas fa-arrow-left"></i> Back</button><h2 class="text-xl font-black">💼 Daily Bounties</h2><div class="w-16"></div></div>
+            <div class="glass-card p-4 text-center"><i class="fas fa-bolt text-teal-500 text-3xl mb-2"></i><h3 class="font-black">Watch ad & earn instantly</h3><p class="text-sm">20 tasks, ৳10 each | 8h cooldown</p></div>
+            <div id="dailyJobsContainer" class="space-y-3 max-h-96 overflow-y-auto pb-4"></div>
+        </div>
+
+        <!-- ADMIN PAGE -->
+        <div id="admin-page" class="page space-y-5">
+            <div class="flex justify-between items-center"><button onclick="navigateTo('profile')" class="btn-secondary px-4 py-2"><i class="fas fa-arrow-left"></i> Back</button><h2 class="text-xl font-black">📊 Admin Studio</h2><div></div></div>
+            <div class="glass-card p-5"><h3 class="font-black">Send Bonus to all</h3><input type="number" id="bonusAmount" placeholder="Bonus ৳" class="input-premium w-full mb-3"><button id="sendBonusBtn" class="btn-premium w-full">Distribute</button></div>
+            <div class="glass-card p-5"><h3 class="font-black">Platform Pulse</h3><div class="space-y-2"><div class="flex justify-between"><span>AdsGram</span><span class="text-green-600">● Active</span></div><div class="flex justify-between"><span>Block ID</span><span id="blockIdStatus">int-25417</span></div><div class="flex justify-between"><span>Today's Ads</span><span id="adminAdsCount">0/20</span></div><div class="flex justify-between"><span>Total Users</span><span id="totalUsersCount">0</span></div></div><button id="sendManualReportBtn" class="btn-secondary w-full mt-4 py-2">Send Report</button></div>
+        </div>
+        
+        <!-- NOTIFICATIONS PAGE -->
+        <div id="notifications-page" class="page"><h2 class="text-2xl font-black text-center mb-4">🔔 Notifications</h2><div id="notificationsList" class="space-y-3"></div></div>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="nav-bar fixed bottom-0 left-0 right-0 max-w-md mx-auto mt-6">
+        <div class="flex justify-around py-2">
+            <div class="nav-item active text-center py-2 px-4 cursor-pointer" data-page="home"><i class="fas fa-home text-teal-800 text-xl"></i><span class="text-xs block mt-1 font-medium">Home</span></div>
+            <div class="nav-item text-center py-2 px-4 cursor-pointer" data-page="wallet"><i class="fas fa-wallet text-teal-800/70 text-xl"></i><span class="text-xs block mt-1">Wallet</span></div>
+            <div class="nav-item text-center py-2 px-4 cursor-pointer" data-page="daily-jobs"><i class="fas fa-briefcase text-teal-800/70 text-xl"></i><span class="text-xs block mt-1">Jobs</span></div>
+            <div class="nav-item text-center py-2 px-4 cursor-pointer" data-page="profile"><i class="fas fa-user text-teal-800/70 text-xl"></i><span class="text-xs block mt-1">Profile</span></div>
+        </div>
+    </nav>
+</div>
+<div id="supportBtn" class="support-float" onclick="openSupportPage()"><i class="fas fa-headset text-white text-2xl"></i></div>
+<div id="customAlert" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 hidden p-4"><div class="custom-alert max-w-sm w-full p-6 text-center"><i class="fas fa-bell text-teal-500 text-4xl mb-3"></i><p id="alertMessage" class="text-gray-800 dark:text-white mb-4"></p><button id="alertOkBtn" class="btn-premium px-6 py-2">Got it</button></div></div>
+
+<script>
+    const CONFIG = { app: { minWithdrawal: 2000, dailyAdLimit: 20, adReward: 10, dailyJobReward: 10, referralBonus: 50 }, adsgram: { enabled: true, blockId: "int-25417" }, social: { telegram: "https://t.me/+tLB334Ko71tjY2Y1" }, supportUrl: "https://t.me/smartmoneypro_bot", dailyJobs: 20 };
+    let currentUser = null, userData = null, adsGramCount = 0, adsGramReady = false, AdController = null, isAdShowing = false;
+    const tg = window.Telegram.WebApp;
+    function showAlert(m) { const a=document.getElementById('customAlert'); document.getElementById('alertMessage').textContent=m; a.classList.remove('hidden'); document.getElementById('alertOkBtn').onclick=()=>a.classList.add('hidden'); }
+    function showAdStatus(m, err=false) { let d=document.createElement('div'); d.className='ad-status'; d.style.background=err?'#e65c2e':'#00ffcc'; d.style.color='#0a0a2a'; d.innerHTML=m; document.body.appendChild(d); setTimeout(()=>d.remove(),2800); }
+    function saveUserData() { if(currentUser) localStorage.setItem(`user_${currentUser.id}`, JSON.stringify(userData)); }
+    function loadUserData() { if(currentUser) return JSON.parse(localStorage.getItem(`user_${currentUser.id}`)); return null; }
+    function updateUI() { if(!userData) return; document.getElementById('coinBalance').innerText=userData.balance||0; document.getElementById('walletBalance').innerText=userData.balance||0; document.getElementById('usdBalance').innerText=((userData.balance||0)/120).toFixed(2); document.getElementById('adsWatchedCount').innerText=adsGramCount; document.getElementById('adsLeftCount').innerText=CONFIG.app.dailyAdLimit-adsGramCount; document.getElementById('adminAdsCount').innerText=`${adsGramCount}/${CONFIG.app.dailyAdLimit}`; document.getElementById('profileName').innerHTML=userData.name||'User'; document.getElementById('profileUsername').innerText=`@${userData.username||'user'}`; document.getElementById('profileUserId').innerText=currentUser?.id||''; document.getElementById('joinedVia').innerText=userData.joinedVia||'Telegram'; document.getElementById('jobsDoneCount').innerText=userData.jobsCompletedCount||0; document.getElementById('totalEarned').innerText=userData.totalEarned||userData.balance; }
+    function initAdsGram() { if(!CONFIG.adsgram.enabled) return; try { if(typeof Adsgram !== 'undefined') { AdController = Adsgram.init({ blockId: CONFIG.adsgram.blockId, debug: true }); if(AdController) adsGramReady=true; else setTimeout(initAdsGram,1500); } else setTimeout(initAdsGram,1500); } catch(e) { setTimeout(initAdsGram,2000); } }
+    async function watchAd(cb) { if(!adsGramReady) { showAlert("Loading ad service..."); return false; } if(isAdShowing){ showAlert("Ad playing"); return false;} if(adsGramCount>=CONFIG.app.dailyAdLimit){ showAlert(`Daily limit ${adsGramCount}/${CONFIG.app.dailyAdLimit}`); return false; } isAdShowing=true; showAdStatus("🎬 Loading Rush ad..."); try { await AdController.show(); adsGramCount++; userData.adsGramCount=adsGramCount; userData.balance+=CONFIG.app.adReward; userData.lastAdDate=new Date().toISOString().split('T')[0]; userData.totalEarned = (userData.totalEarned||0)+CONFIG.app.adReward; saveUserData(); updateUI(); showAdStatus("✅ +৳10 credited!"); showAlert(`🎉 +৳${CONFIG.app.adReward} earned!`); if(cb) cb(); return true; } catch(e){ showAdStatus("Ad incomplete.",true); return false; } finally{ isAdShowing=false; } }
+    function setupDailyJobs(){ let container=document.getElementById('dailyJobsContainer'); if(!container) return; container.innerHTML=''; for(let i=1;i<=CONFIG.dailyJobs;i++){ let div=document.createElement('div'); div.className='task-card p-3 flex items-center justify-between'; div.innerHTML=`<div class="flex gap-3"><div class="w-10 h-10 rounded-full bg-gradient-to-r from-teal-500 to-green-500 flex items-center justify-center text-white font-black">${i}</div><div><h4 class="font-bold text-sm">Rush Task #${i}</h4><p class="text-teal-700/50 text-xs">+৳10 per view</p></div></div><button id="jobBtn${i}" data-job="${i}" class="job-btn px-4 py-2 text-sm font-bold rounded-full">Watch Ad</button>`; container.appendChild(div); } updateJobButtons(); }
+    async function updateJobButtons(){ if(!currentUser) return; let key=`jobs_${currentUser.id}`; let completedJobs=JSON.parse(localStorage.getItem(key)||'[]'); let now=Date.now(); let cooldown=8*60*60*1000; for(let i=1;i<=CONFIG.dailyJobs;i++){ let btn=document.getElementById(`jobBtn${i}`); if(!btn) continue; let jobData=completedJobs.find(j=>j.id===i); if(jobData&&(now-jobData.time)<cooldown){ let rem=cooldown-(now-jobData.time); let hours=Math.floor(rem/(60*60*1000)); let mins=Math.floor((rem%(60*60*1000))/(60*1000)); btn.textContent=`${hours}h ${mins}m`; btn.classList.add('job-btn-disabled'); btn.disabled=true; }else{ btn.textContent='Watch Ad'; btn.classList.remove('job-btn-disabled'); btn.disabled=false; btn.onclick=()=>watchAd(()=>completeJob(i)); } } }
+    async function completeJob(jobId){ let key=`jobs_${currentUser.id}`; let completedJobs=JSON.parse(localStorage.getItem(key)||'[]'); completedJobs.push({id:jobId,time:Date.now()}); localStorage.setItem(key,JSON.stringify(completedJobs)); userData.jobsCompletedCount=(userData.jobsCompletedCount||0)+1; userData.balance+=CONFIG.app.dailyJobReward; userData.totalEarned=(userData.totalEarned||0)+CONFIG.app.dailyJobReward; saveUserData(); updateJobButtons(); updateUI(); showAlert(`✓ Task #${jobId} done! +৳10`); }
+    function loadWithdrawalHistory(){ let container=document.getElementById('withdrawalHistoryList'); if(!container) return; let key=`withdrawals_${currentUser?.id}`; let withdrawals=JSON.parse(localStorage.getItem(key)||'[]'); if(!withdrawals.length){ container.innerHTML='<p class="text-center py-4 text-teal-800/60">No withdrawals yet</p>'; return; } container.innerHTML=withdrawals.reverse().map(w=>`<div class="history-item flex justify-between p-3 bg-teal-50/50 rounded-2xl"><div><p class="font-black">৳${w.amount} - ${w.method}</p><p class="text-xs text-teal-700/50">${new Date(w.date).toLocaleDateString()}</p></div><span class="text-xs px-2 py-1 rounded-full ${w.status==='approved'?'bg-green-200 text-green-800':w.status==='rejected'?'bg-red-200 text-red-800':'bg-yellow-200 text-yellow-800'}">${w.status}</span></div>`).join(''); }
+    async function requestWithdrawal(){ let amount=parseInt(document.getElementById('withdrawAmount').value); let method=document.getElementById('withdrawMethod').value; let paymentDetail=document.getElementById('paymentDetailInput')?.value; if(amount<CONFIG.app.minWithdrawal){ showAlert(`Min ৳${CONFIG.app.minWithdrawal}`); return; } if(amount>(userData.balance||0)){ showAlert("Insufficient balance"); return; } if(!method||!paymentDetail){ showAlert("Select method & enter details"); return; } let withdrawal={amount,method,paymentDetail,status:"pending",date:new Date().toISOString()}; let key=`withdrawals_${currentUser.id}`; let withdrawals=JSON.parse(localStorage.getItem(key)||'[]'); withdrawals.push(withdrawal); localStorage.setItem(key,JSON.stringify(withdrawals)); userData.balance-=amount; saveUserData(); updateUI(); loadWithdrawalHistory(); showAlert("Withdrawal request submitted!"); document.getElementById('withdrawAmount').value=''; document.getElementById('withdrawMethod').value=''; document.getElementById('paymentDetailsContainer').innerHTML=''; }
+    function updatePaymentFields(){ let method=document.getElementById('withdrawMethod').value; let container=document.getElementById('paymentDetailsContainer'); if(!method){ container.innerHTML=''; return; } let ph={Bkash:"bKash number",Nagad:"Nagad number",Rocket:"Rocket number"}; container.innerHTML=`<input id="paymentDetailInput" type="text" placeholder="${ph[method]}" class="input-premium w-full">`; }
+    function loadDailyStats(){ let total=0; for(let i=0;i<localStorage.length;i++) if(localStorage.key(i)?.startsWith('user_')) total++; document.getElementById('totalUsersCount').innerText=total; }
+    function initTelegram(){ try{ tg.ready(); tg.expand(); let user=tg.initDataUnsafe.user; if(!user) throw new Error(); currentUser={id:user.id.toString(),firstName:user.first_name||'',username:user.username||''}; userData=loadUserData(); if(!userData){ userData={uid:currentUser.id,name:currentUser.firstName,username:currentUser.username,balance:0,adsGramCount:0,lastAdDate:new Date().toISOString().split('T')[0],joinedVia:'Telegram',createdAt:new Date().toISOString(),jobsCompletedCount:0,totalEarned:0}; saveUserData(); } adsGramCount=userData.adsGramCount||0; if(userData.lastAdDate!==new Date().toISOString().split('T')[0]){ adsGramCount=0; userData.adsGramCount=0; saveUserData(); } updateUI(); loadWithdrawalHistory(); updateJobButtons(); document.getElementById('referralLink').value=`https://t.me/NeonRushBot?start=${currentUser.id}`; if(currentUser.id==='7793213912') document.getElementById('adminAccessPanel').classList.remove('hidden'); } catch(e){ showAlert("Launch from Telegram"); } }
+    function navigateTo(pageId){ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active-page')); document.getElementById(`${pageId}-page`).classList.add('active-page'); document.querySelectorAll('.nav-item').forEach(n=>{ n.classList.remove('active'); if(n.dataset.page===pageId) n.classList.add('active'); }); if(pageId==='wallet') loadWithdrawalHistory(); if(pageId==='daily-jobs') updateJobButtons(); }
+    window.navigateTo=navigateTo; window.openSupportPage=()=>tg.openLink(CONFIG.supportUrl);
+    document.addEventListener('DOMContentLoaded',()=>{ initAdsGram(); initTelegram(); loadDailyStats(); setupDailyJobs(); document.getElementById('watchAdBtn')?.addEventListener('click',()=>watchAd()); document.getElementById('homeWithdrawBtn')?.addEventListener('click',()=>navigateTo('wallet')); document.getElementById('withdrawSubmitBtn')?.addEventListener('click',requestWithdrawal); document.getElementById('withdrawMethod')?.addEventListener('change',updatePaymentFields); document.getElementById('telegramJoinBtn')?.addEventListener('click',()=>tg.openLink(CONFIG.social.telegram)); document.getElementById('sendBonusBtn')?.addEventListener('click',()=>showAlert("Bonus request sent to admin")); document.getElementById('sendManualReportBtn')?.addEventListener('click',()=>showAlert("Report delivered")); document.querySelectorAll('.nav-item').forEach(n=>n.addEventListener('click',()=>navigateTo(n.dataset.page))); document.getElementById('copyReferralBtn')?.addEventListener('click',()=>{ let inp=document.getElementById('referralLink'); inp.select(); document.execCommand('copy'); showAlert("Referral link copied!"); }); document.getElementById('darkModeToggle')?.addEventListener('click',()=>{ document.body.classList.toggle('dark'); localStorage.setItem('theme',document.body.classList.contains('dark')?'dark':'light'); }); if(localStorage.getItem('theme')==='dark') document.body.classList.add('dark'); });
+</script>
+</body>
+</html>
