@@ -1,159 +1,1418 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>বিজ্ঞাপন দেখুন</title>
-  <script src="https://sad.adsgram.ai/js/sad.min.js"></script>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      text-align: center; padding: 20px;
-      background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
-      color: #333; min-height: 100vh;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-    }
-    #ad-counter {
-      font-size: 1.3rem; font-weight: 700; margin-bottom: 24px;
-      padding: 10px 20px; background: rgba(255,255,255,0.95);
-      border-radius: 25px; display: inline-block;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2); color: #555;
-    }
-    .ad-container {
-      background: #fff; padding: 40px 32px; border-radius: 16px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.25);
-      max-width: 450px; width: 100%; animation: slideUp 0.4s ease;
-    }
-    @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    .ad-container h2 { font-size: 1.8rem; margin-bottom: 16px; color: #2d3748; }
-    .ad-container p { color: #718096; margin-bottom: 24px; line-height: 1.5; }
-    .btn {
-      padding: 14px 28px; margin: 10px 5px; cursor: pointer; border: none;
-      border-radius: 10px; font-size: 1rem; font-weight: 600;
-      transition: all 0.2s; width: 100%; max-width: 300px;
-    }
-    .btn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
-    .btn-primary { background: linear-gradient(135deg, #30cfd0, #330867); color: white; }
-    .hidden { display: none !important; }
-    #ad-status { margin-top: 16px; font-weight: 500; min-height: 24px; padding: 8px 12px; border-radius: 8px; }
-    .error { background: #fff5f5; color: #c53030; border: 1px solid #feb2b2; }
+
+<script type="text/javascript">
+  setTimeout(function() {
+    window.location.href = "https://t.me/final_hub_bot?startapp"; // আপনার লিঙ্ক দিন
+  },6000); // ১০ সেকেন্ড (১০,০০০ মিলিসেকেন্ড)
+    </script>
+
+    <script>
+window.onload = function() {
+    window.Adsgram.init({ blockId: "int-32894" }).show();
+}
+    </script>
     
-    .warning-modal {
-      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.7); z-index: 9999; align-items: center; justify-content: center;
-    }
-    .warning-modal.show { display: flex; }
-    .warning-content {
-      background: #fff; padding: 32px 24px; border-radius: 16px;
-      max-width: 400px; width: 90%; text-align: center;
-    }
-    .warning-btn {
-      background: linear-gradient(135deg, #30cfd0, #330867); color: white;
-      border: none; padding: 12px 32px; border-radius: 10px; font-weight: 600; cursor: pointer;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+    <title>🎬 প্রিমিয়াম ভিডিও হাব</title>
+
+    <!-- Telegram WebApp & Adsgram -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="https://sad.adsgram.ai/js/sad.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================================
+           RANDOM THEME: CYBERPUNK NEON GRID / FUTURISTIC TERMINAL
+           Chrome · Cyan · Magenta · Scanlines · Glitch · Monospace
+           ============================================================ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background: #05060a;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            color: #c9f7ff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated neon grid floor + chrome sky */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(circle at 50% 0%, rgba(0, 240, 255, 0.18), transparent 55%),
+                radial-gradient(circle at 100% 100%, rgba(255, 0, 200, 0.22), transparent 55%),
+                radial-gradient(circle at 0% 100%, rgba(120, 0, 255, 0.20), transparent 55%),
+                linear-gradient(180deg, #05060a 0%, #0a0715 60%, #12041f 100%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Perspective neon grid */
+        body::after {
+            content: '';
+            position: fixed;
+            left: 50%;
+            bottom: -20%;
+            width: 300%;
+            height: 80%;
+            transform: translateX(-50%) perspective(340px) rotateX(62deg);
+            background-image:
+                linear-gradient(rgba(0, 240, 255, 0.55) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 0, 200, 0.45) 1px, transparent 1px);
+            background-size: 44px 44px;
+            z-index: 0;
+            pointer-events: none;
+            animation: gridScroll 3s linear infinite;
+            mask-image: linear-gradient(to top, #000 5%, transparent 78%);
+            -webkit-mask-image: linear-gradient(to top, #000 5%, transparent 78%);
+        }
+
+        @keyframes gridScroll {
+            from { background-position: 0 0, 0 0; }
+            to   { background-position: 0 44px, 44px 0; }
+        }
+
+        .app-container {
+            position: relative;
+            z-index: 2;
+            max-width: 560px;
+            width: 100%;
+            min-height: 100vh;
+            padding: 26px 18px 46px;
+            background: linear-gradient(
+                175deg,
+                rgba(8, 10, 20, 0.92) 0%,
+                rgba(10, 6, 22, 0.96) 55%,
+                rgba(14, 4, 26, 0.98) 100%
+            );
+            backdrop-filter: blur(14px);
+            border-left: 1px solid rgba(0, 240, 255, 0.22);
+            border-right: 1px solid rgba(255, 0, 200, 0.22);
+            box-shadow:
+                0 0 40px rgba(0, 240, 255, 0.10),
+                0 0 80px rgba(255, 0, 200, 0.10),
+                inset 0 0 60px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Subtle scanlines overlay */
+        .app-container::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 240, 255, 0.035) 0px,
+                rgba(0, 240, 255, 0.035) 1px,
+                transparent 1px,
+                transparent 3px
+            );
+            z-index: 5;
+            mix-blend-mode: screen;
+        }
+
+        /* ============================================================
+           PREMIUM HEADER — NEON TERMINAL
+           ============================================================ */
+
+        .premium-header {
+            text-align: center;
+            padding: 16px 0 26px;
+            margin-bottom: 24px;
+            position: relative;
+            border-bottom: 1px dashed rgba(0, 240, 255, 0.35);
+        }
+
+        .premium-header::before {
+            content: '> SYSTEM.ONLINE';
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            color: #00f0ff;
+            opacity: 0.75;
+            text-shadow: 0 0 8px rgba(0, 240, 255, 0.8);
+        }
+
+        .premium-header::after {
+            content: '[ 0x28A1 ]';
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            color: #ff00c8;
+            opacity: 0.75;
+            text-shadow: 0 0 8px rgba(255, 0, 200, 0.8);
+        }
+
+        .premium-header h1 {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+            text-transform: uppercase;
+            color: #eafcff;
+            text-shadow:
+                0 0 8px rgba(0, 240, 255, 0.9),
+                0 0 22px rgba(0, 240, 255, 0.55),
+                0 0 40px rgba(255, 0, 200, 0.35);
+            animation: flicker 4.5s infinite;
+        }
+
+        @keyframes flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+            20%, 22%, 24%, 55% { opacity: 0.72; }
+        }
+
+        .premium-header p {
+            display: inline-block;
+            margin-top: 14px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #00f0ff;
+            padding: 8px 20px;
+            background: rgba(0, 240, 255, 0.06);
+            border: 1px solid rgba(0, 240, 255, 0.55);
+            border-radius: 2px;
+            box-shadow:
+                0 0 14px rgba(0, 240, 255, 0.35),
+                inset 0 0 14px rgba(0, 240, 255, 0.10);
+            text-shadow: 0 0 8px rgba(0, 240, 255, 0.8);
+        }
+
+        /* ============================================================
+           VIDEO GRID
+           ============================================================ */
+
+        .video-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        /* ============================================================
+           VIDEO CARD — HOLO PANEL
+           ============================================================ */
+
+        .video-card {
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+            background: linear-gradient(
+                160deg,
+                rgba(10, 16, 28, 0.94),
+                rgba(16, 6, 30, 0.96)
+            );
+            border: 1px solid rgba(0, 240, 255, 0.35);
+            cursor: pointer;
+            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+                        box-shadow 0.3s ease,
+                        border-color 0.3s ease;
+            clip-path: polygon(
+                0 10px, 10px 0,
+                calc(100% - 10px) 0, 100% 10px,
+                100% calc(100% - 10px), calc(100% - 10px) 100%,
+                10px 100%, 0 calc(100% - 10px)
+            );
+            box-shadow:
+                0 0 0 1px rgba(255, 0, 200, 0.15),
+                0 8px 30px rgba(0, 0, 0, 0.6),
+                inset 0 0 40px rgba(0, 240, 255, 0.05);
+        }
+
+        /* Corner accents */
+        .video-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 26px;
+            height: 2px;
+            background: #00f0ff;
+            box-shadow: 0 0 10px #00f0ff;
+            z-index: 3;
+        }
+
+        .video-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 2px;
+            height: 26px;
+            background: #ff00c8;
+            box-shadow: 0 0 10px #ff00c8;
+            z-index: 3;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            border-color: #00f0ff;
+            box-shadow:
+                0 0 0 1px #00f0ff,
+                0 0 24px rgba(0, 240, 255, 0.55),
+                0 0 48px rgba(255, 0, 200, 0.35),
+                inset 0 0 40px rgba(0, 240, 255, 0.10);
+        }
+
+        .video-card:active {
+            transform: translateY(-1px) scale(0.99);
+            transition: transform 0.08s ease;
+        }
+
+        /* ============================================================
+           THUMBNAIL
+           ============================================================ */
+
+        .thumbnail-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: #05060a;
+            border-bottom: 1px solid rgba(0, 240, 255, 0.35);
+        }
+
+        .thumbnail-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(to top, rgba(5, 6, 10, 0.9) 0%, transparent 55%),
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(0, 240, 255, 0.06) 0px,
+                    rgba(0, 240, 255, 0.06) 1px,
+                    transparent 1px,
+                    transparent 3px
+                );
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .thumbnail-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1),
+                        filter 0.4s ease;
+            filter: saturate(1.15) contrast(1.08) brightness(0.92) hue-rotate(-8deg);
+        }
+
+        .video-card:hover .thumbnail-wrapper img {
+            transform: scale(1.08);
+            filter: saturate(1.4) contrast(1.15) brightness(1.02) hue-rotate(0deg);
+        }
+
+        /* ============================================================
+           PLAY OVERLAY — PULSING CYAN RING
+           ============================================================ */
+
+        .play-icon-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .play-icon-overlay svg {
+            width: 78px;
+            height: 78px;
+            filter: drop-shadow(0 0 14px rgba(0, 240, 255, 0.95))
+                    drop-shadow(0 0 30px rgba(255, 0, 200, 0.6));
+            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+                        filter 0.35s ease;
+            animation: neonPulse 2.2s ease-in-out infinite;
+        }
+
+        @keyframes neonPulse {
+            0%, 100% {
+                filter: drop-shadow(0 0 12px rgba(0, 240, 255, 0.85))
+                        drop-shadow(0 0 24px rgba(255, 0, 200, 0.45));
+            }
+            50% {
+                filter: drop-shadow(0 0 22px rgba(0, 240, 255, 1))
+                        drop-shadow(0 0 46px rgba(255, 0, 200, 0.75));
+            }
+        }
+
+        .video-card:hover .play-icon-overlay svg {
+            transform: scale(1.15);
+        }
+
+        .video-card:active .play-icon-overlay svg {
+            transform: scale(0.92);
+        }
+
+        /* ============================================================
+           CARD FOOTER — CHROME BAR
+           ============================================================ */
+
+        .video-card-footer {
+            position: relative;
+            padding: 15px 16px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(
+                180deg,
+                rgba(16, 22, 34, 0.85) 0%,
+                rgba(8, 6, 18, 0.95) 100%
+            );
+            z-index: 2;
+        }
+
+        .video-title {
+            font-family: 'Share Tech Mono', monospace;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 1px;
+            color: #00f0ff;
+            text-transform: uppercase;
+            background: rgba(0, 240, 255, 0.07);
+            padding: 7px 12px;
+            border: 1px solid rgba(0, 240, 255, 0.45);
+            border-radius: 2px;
+            text-shadow: 0 0 8px rgba(0, 240, 255, 0.75);
+            box-shadow: inset 0 0 12px rgba(0, 240, 255, 0.10);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 52%;
+        }
+
+        /* ============================================================
+           PLAY BUTTON — MAGENTA NEON
+           ============================================================ */
+
+        .play-btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border: 1px solid #ff00c8;
+            border-radius: 2px;
+            font-family: 'Share Tech Mono', monospace;
+            font-weight: 700;
+            font-size: 12.5px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #ffe9fb;
+            cursor: pointer;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 0, 200, 0.28),
+                rgba(120, 0, 255, 0.22)
+            );
+            text-shadow: 0 0 8px rgba(255, 0, 200, 0.9);
+            box-shadow:
+                0 0 14px rgba(255, 0, 200, 0.55),
+                inset 0 0 14px rgba(255, 0, 200, 0.18);
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .play-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(
+                100deg,
+                transparent,
+                rgba(255, 255, 255, 0.35),
+                transparent
+            );
+            transform: skewX(-20deg);
+            transition: left 0.55s ease;
+        }
+
+        .play-btn:hover::before {
+            left: 140%;
+        }
+
+        .play-btn:hover {
+            background: linear-gradient(
+                135deg,
+                rgba(255, 0, 200, 0.45),
+                rgba(120, 0, 255, 0.35)
+            );
+            transform: translateY(-2px);
+            box-shadow:
+                0 0 26px rgba(255, 0, 200, 0.85),
+                0 0 48px rgba(120, 0, 255, 0.5),
+                inset 0 0 20px rgba(255, 0, 200, 0.28);
+        }
+
+        .play-btn:active {
+            transform: translateY(0) scale(0.96);
+            box-shadow:
+                0 0 14px rgba(255, 0, 200, 0.7),
+                inset 0 0 18px rgba(255, 0, 200, 0.3);
+        }
+
+        .play-btn svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+            filter: drop-shadow(0 0 4px rgba(255, 0, 200, 0.9));
+        }
+
+        /* ============================================================
+           LOADING OVERLAY — TERMINAL BOOT
+           ============================================================ */
+
+        .loading-overlay {
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(circle at center, rgba(0, 240, 255, 0.10), transparent 60%),
+                rgba(3, 4, 10, 0.97);
+            backdrop-filter: blur(16px);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .loading-overlay.show {
+            display: flex;
+            animation: fadeIn 0.25s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+
+        .film-spinner {
+            width: 88px;
+            height: 88px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2300f0ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 4v16"/><path d="M16 4v16"/><path d="M2 8h4"/><path d="M2 12h4"/><path d="M2 16h4"/><path d="M18 8h4"/><path d="M18 12h4"/><path d="M18 16h4"/></svg>') no-repeat center;
+            background-size: contain;
+            animation: spinReel 0.9s infinite cubic-bezier(0.5, 0, 0.5, 1);
+            filter: drop-shadow(0 0 18px rgba(0, 240, 255, 0.95))
+                    drop-shadow(0 0 40px rgba(255, 0, 200, 0.5));
+        }
+
+        @keyframes spinReel {
+            0%   { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            margin-top: 26px;
+            font-family: 'Share Tech Mono', monospace;
+            font-weight: 700;
+            letter-spacing: 3px;
+            font-size: 13px;
+            text-transform: uppercase;
+            color: #00f0ff;
+            padding: 10px 26px;
+            background: rgba(0, 240, 255, 0.06);
+            border: 1px solid rgba(0, 240, 255, 0.55);
+            border-radius: 2px;
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.9);
+            box-shadow:
+                0 0 20px rgba(0, 240, 255, 0.4),
+                inset 0 0 18px rgba(0, 240, 255, 0.12);
+            animation: textBlink 1.4s steps(2, start) infinite;
+        }
+
+        @keyframes textBlink {
+            0%, 100% { opacity: 1; }
+            50%      { opacity: 0.55; }
+        }
+
+        /* ============================================================
+           AD STATUS — NEON GREEN SUCCESS
+           ============================================================ */
+
+        .ad-status {
+            text-align: center;
+            margin-top: 22px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 12px 18px;
+            color: #7dffb0;
+            background: rgba(0, 255, 130, 0.07);
+            border: 1px solid rgba(0, 255, 130, 0.55);
+            border-radius: 2px;
+            text-shadow: 0 0 10px rgba(0, 255, 130, 0.9);
+            box-shadow:
+                0 0 18px rgba(0, 255, 130, 0.35),
+                inset 0 0 14px rgba(0, 255, 130, 0.10);
+            display: none;
+            animation: statusPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .ad-status.show {
+            display: block;
+        }
+
+        @keyframes statusPop {
+            0%   { transform: scale(0.85); opacity: 0; }
+            100% { transform: scale(1);    opacity: 1; }
+        }
+
+        /* ============================================================
+           SCROLLBAR — NEON
+           ============================================================ */
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(5, 6, 10, 0.9);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(
+                180deg,
+                #00f0ff,
+                #ff00c8
+            );
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.8);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(
+                180deg,
+                #66f7ff,
+                #ff66e0
+            );
+        }
+
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+
+        @media (max-width: 420px) {
+            .premium-header h1 {
+                font-size: 22px;
+                letter-spacing: 0.3px;
+            }
+
+            .video-title {
+                font-size: 11.5px;
+                padding: 6px 9px;
+                letter-spacing: 0.8px;
+            }
+
+            .play-btn {
+                font-size: 11.5px;
+                padding: 9px 14px;
+                letter-spacing: 1px;
+            }
+
+            .play-icon-overlay svg {
+                width: 62px;
+                height: 62px;
+            }
+        }
+
+        /* ============================================================
+           STAGGER REVEAL — GLITCH IN
+           ============================================================ */
+
+        .video-card {
+            animation: cardReveal 0.55s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+        }
+
+        .video-card:nth-child(1)  { animation-delay: 0.04s; }
+        .video-card:nth-child(2)  { animation-delay: 0.08s; }
+        .video-card:nth-child(3)  { animation-delay: 0.12s; }
+        .video-card:nth-child(4)  { animation-delay: 0.16s; }
+        .video-card:nth-child(5)  { animation-delay: 0.20s; }
+        .video-card:nth-child(6)  { animation-delay: 0.24s; }
+        .video-card:nth-child(7)  { animation-delay: 0.28s; }
+        .video-card:nth-child(8)  { animation-delay: 0.32s; }
+        .video-card:nth-child(9)  { animation-delay: 0.36s; }
+        .video-card:nth-child(10) { animation-delay: 0.40s; }
+        .video-card:nth-child(11) { animation-delay: 0.44s; }
+        .video-card:nth-child(12) { animation-delay: 0.48s; }
+        .video-card:nth-child(13) { animation-delay: 0.52s; }
+        .video-card:nth-child(14) { animation-delay: 0.56s; }
+        .video-card:nth-child(15) { animation-delay: 0.60s; }
+        .video-card:nth-child(16) { animation-delay: 0.64s; }
+        .video-card:nth-child(17) { animation-delay: 0.68s; }
+        .video-card:nth-child(18) { animation-delay: 0.72s; }
+        .video-card:nth-child(19) { animation-delay: 0.76s; }
+        .video-card:nth-child(20) { animation-delay: 0.80s; }
+        .video-card:nth-child(21) { animation-delay: 0.84s; }
+        .video-card:nth-child(22) { animation-delay: 0.88s; }
+        .video-card:nth-child(23) { animation-delay: 0.92s; }
+        .video-card:nth-child(24) { animation-delay: 0.96s; }
+        .video-card:nth-child(25) { animation-delay: 1.00s; }
+        .video-card:nth-child(26) { animation-delay: 1.04s; }
+        .video-card:nth-child(27) { animation-delay: 1.08s; }
+
+        @keyframes cardReveal {
+            0% {
+                opacity: 0;
+                transform: translateY(22px) scale(0.96);
+                filter: blur(4px) hue-rotate(40deg);
+            }
+            60% {
+                filter: blur(0) hue-rotate(0deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-  <div id="ad-counter">বিজ্ঞাপন দেখছেন 4</div>
+<div class="app-container">
 
-  <div class="warning-modal" id="warningModal">
-    <div class="warning-content">
-      <div style="font-size: 3rem; margin-bottom: 16px;">⚠️</div>
-      <div style="font-size: 1.3rem; font-weight: 700; color: #c53030; margin-bottom: 12px;">সতর্কতা</div>
-      <div id="warningMessage"></div>
-      <button class="warning-btn" onclick="closeWarning()">ঠিক আছে</button>
+    <!-- Loading -->
+    <div class="loading-overlay" id="loadingOverlay">
+
+        <div class="film-spinner"></div>
+
+        <div class="loading-text">
+            ✨ অ্যাড লোড হচ্ছে...
+        </div>
+
     </div>
-  </div>
 
-  <div class="ad-container" id="ad-wall">
-    <h2>🔒 কন্টেন্ট লক করা আছে!</h2>
-    <p>কন্টেন্ট আনলক করতে সর্বশেষ বিজ্ঞাপনটি দেখুন।</p>
 
-    <button class="btn btn-primary" id="watch-ad-btn">🔓 আনলক করতে বিজ্ঞাপন দেখুন</button>
-    
-    <div id="loading-ad" class="hidden">
-      <div style="margin: 20px 0;">
-        <div style="width: 40px; height: 40px; border: 4px solid #e2e8f0; border-top-color: #30cfd0; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto;"></div>
-      </div>
-      বিজ্ঞাপন লোড হচ্ছে...
+    <!-- Main Content -->
+    <div id="mainContent">
+
+        <div class="premium-header">
+
+            <h1>🎬 প্রিমিয়াম ভিডিও হাব</h1>
+
+            <p>
+                🔥 এক্সক্লুসিভ কন্টেন্ট
+            </p>
+
+        </div>
+
+
+        <div class="video-grid" id="videoGrid"></div>
+
+
+        <div class="ad-status" id="adStatus">
+            🔥 বিজ্ঞাপনটি সম্পন্ন হয়েছে। আবার ক্লিক করুন।
+        </div>
+
     </div>
-    
-    <div id="ad-status"></div>
-  </div>
 
-  <script>
-    const BLOCK_ID = "int-32894";
-    const FINAL_URL = "https://t.me/final_hub_bot?startapp"; 
-    const MIN_WATCH_SEC = 8; 
+</div>
 
-    const watchAdBtn = document.getElementById('watch-ad-btn');
-    const loadingAd = document.getElementById('loading-ad');
-    const adStatus = document.getElementById('ad-status');
-    const warningModal = document.getElementById('warningModal');
-    const warningMessage = document.getElementById('warningMessage');
 
-    function triggerAdWarning(message) {
-      adStatus.textContent = message;
-      adStatus.className = 'error';
-      warningMessage.textContent = message;
-      warningModal.classList.add('show');
-    }
+<script>
 
-    function closeWarning() {
-      warningModal.classList.remove('show');
-      watchAdBtn.classList.remove('hidden');
-      loadingAd.classList.add('hidden');
-    }
+    /* =====================================================
+       CONFIGURATION
+    ===================================================== */
 
-    function showAdsGramAd(isAuto = false) {
-      if (typeof window.Adsgram === 'undefined') return;
+    const ADSGRAM_BLOCK_ID = "int-32894";
 
-      const AdController = window.Adsgram.init({ blockId: BLOCK_ID });
-      
-      // অটো লোড হলে UI পরিবর্তন করবে না, ম্যানুয়াল হলে করবে
-      if (!isAuto) {
-        watchAdBtn.classList.add('hidden');
-        loadingAd.classList.remove('hidden');
-        adStatus.textContent = '';
-        adStatus.className = '';
-      }
 
-      const adStartTime = Date.now();
+    const REDIRECT_LINKS = [
 
-      AdController.show()
-        .then(() => {
-          const watchDuration = (Date.now() - adStartTime) / 1000;
-          if (watchDuration >= MIN_WATCH_SEC) {
-            // ৮ সেকেন্ড দেখা হলে সরাসরি রিডাইরেক্ট
-            window.location.href = FINAL_URL;
-          } else if (!isAuto) {
-            // ৮ সেকেন্ডের কম দেখলে শুধু ম্যানুয়াল ক্লিকে ওয়ার্নিং দিবে
-            loadingAd.classList.add('hidden');
-            watchAdBtn.classList.remove('hidden');
-            triggerAdWarning(`⚠️ বিজ্ঞাপনটি অন্তত ${MIN_WATCH_SEC} সেকেন্ড দেখা প্রয়োজন।`);
-          }
-        })
-        .catch(() => {
-          if (!isAuto) {
-            loadingAd.classList.add('hidden');
-            watchAdBtn.classList.remove('hidden');
-            triggerAdWarning("বিজ্ঞাপন লোড হয়নি। আবার চেষ্টা করুন।");
-          }
+        "https://www.profitableratecpmnetwork.com/sj018kgzee?key=e34e17906e8fd410dad2e9ec1d272ce1",
+
+        "https://www.profitableratecpmnetwork.com/yk2urd6mbi?key=4b5b863ee584d2aa79fd144089d8117e",
+
+        "https://www.profitableratecpmnetwork.com/jawa6v2m?key=110abe83a2938c0a9a850051443455d9"
+
+    ];
+
+
+    /* Redirect delay নেই।
+       কারণ Ad শেষ হওয়ার পরে দ্বিতীয় click-এই redirect হবে।
+    */
+
+
+    /* =====================================================
+       IMAGE LIST
+    ===================================================== */
+
+    const imageUrls = [
+
+        "https://i.ibb.co.com/bRrgh9mD/IMG-20260822-221556-525.jpg",
+
+        "https://i.ibb.co.com/3yJ9FYGL/IMG-20260822-221555-428.jpg",
+
+        "https://i.ibb.co.com/BKZtNjN4/IMG-20260822-221554-429.jpg",
+
+        "https://i.ibb.co.com/5xwYHGZf/IMG-20260822-221553-168.jpg",
+
+        "https://i.ibb.co.com/hRT6G2g7/IMG-20260822-221551-005.jpg",
+
+        "https://i.ibb.co.com/tMZ5xyL8/IMG-20260822-221548-616.jpg",
+
+        "https://i.ibb.co.com/MxB3KRtW/IMG-20260822-221547-774.jpg",
+
+        "https://i.ibb.co.com/hRDDWsfm/IMG-20260822-221546-925.jpg",
+
+        "https://i.ibb.co.com/S43YwKzs/IMG-20260822-221544-925.jpg",
+
+        "https://i.ibb.co.com/7dVjKHsq/IMG-20260822-221529-119.jpg",
+
+        "https://i.ibb.co.com/21zXGV87/IMG-20260822-221527-824.jpg",
+
+        "https://i.ibb.co.com/j96DYscF/IMG-20260822-221526-366.jpg",
+
+        "https://i.ibb.co.com/1Jm81ybR/IMG-20260822-221524-729.jpg",
+
+        "https://i.ibb.co.com/jvq57d9p/IMG-20260822-221455-554.jpg",
+
+        "https://i.ibb.co.com/cX7BVL22/IMG-20260822-221445-158.jpg",
+
+        "https://i.ibb.co.com/Y739DsXm/IMG-20260822-221444-320.jpg",
+
+        "https://i.ibb.co.com/k2qJVjnV/IMG-20260822-221443-140.jpg",
+
+        "https://i.ibb.co.com/fz1HNPF0/IMG-20260822-221442-522.jpg",
+
+        "https://i.ibb.co.com/rKRhg88Z/IMG-20260822-221440-971.jpg",
+
+        "https://i.ibb.co.com/VWJbRQ6M/IMG-20260822-221440-190.jpg",
+
+        "https://i.ibb.co.com/3mM3ntKh/IMG-20260822-221435-521.jpg",
+
+        "https://i.ibb.co.com/DPmCZLWH/IMG-20260822-221434-264.jpg",
+
+        "https://i.ibb.co.com/zVWFsgbt/IMG-20260822-221433-098.jpg",
+
+        "https://i.ibb.co.com/rKZfQYdV/IMG-20260822-221431-813.jpg",
+
+        "https://i.ibb.co.com/YF32czR6/IMG-20260822-221430-955.jpg",
+
+        "https://i.ibb.co.com/Gf78HQSn/IMG-20260822-221428-982.jpg",
+
+        "https://i.ibb.co.com/Dfv9sF1p/IMG-20260822-221427-181.jpg"
+
+    ];
+
+
+    /* =====================================================
+       VARIABLES
+    ===================================================== */
+
+    const uniqueImages = [
+        ...new Set(imageUrls)
+    ];
+
+
+    const loadingOverlay =
+        document.getElementById("loadingOverlay");
+
+
+    const videoGrid =
+        document.getElementById("videoGrid");
+
+
+    const adStatus =
+        document.getElementById("adStatus");
+
+
+    let linkIndex = 0;
+
+
+    let isProcessing = false;
+
+
+    /*
+       false = প্রথম click এখনো হয়নি
+       true  = Ad সম্পন্ন হয়েছে,
+               এখন দ্বিতীয় click-এ redirect হবে
+    */
+
+    let adCompleted = false;
+
+
+
+    /* =====================================================
+       ADSGRAM FUNCTION
+    ===================================================== */
+
+    function showAdsgramAd() {
+
+        return new Promise((resolve) => {
+
+            /*
+               Adsgram SDK আছে কিনা check
+            */
+
+            if (
+                typeof window.Adsgram === "undefined" ||
+                typeof window.Adsgram.init !== "function"
+            ) {
+
+                console.error(
+                    "❌ Adsgram SDK পাওয়া যায়নি!"
+                );
+
+                resolve(false);
+
+                return;
+            }
+
+
+            try {
+
+                /*
+                   Block ID দিয়ে controller তৈরি
+                */
+
+                const AdController =
+                    window.Adsgram.init({
+
+                        blockId:
+                            ADSGRAM_BLOCK_ID
+
+                    });
+
+
+                /*
+                   Ad Show
+                */
+
+                AdController.show()
+
+                    .then(() => {
+
+                        console.log(
+                            "✅ Adsgram Ad সম্পূর্ণ হয়েছে"
+                        );
+
+
+                        /*
+                           Ad সম্পূর্ণ হয়েছে
+                        */
+
+                        adCompleted = true;
+
+
+                        /*
+                           Status message
+                        */
+
+                        adStatus.classList.add("show");
+
+
+                        resolve(true);
+
+                    })
+
+
+                    .catch((error) => {
+
+                        console.error(
+                            "❌ Adsgram Ad Error:",
+                            error
+                        );
+
+
+                        /*
+                           Ad না দেখালে
+                           redirect করা হবে না
+                        */
+
+                        resolve(false);
+
+                    });
+
+
+            } catch (error) {
+
+                console.error(
+                    "❌ Adsgram Init Error:",
+                    error
+                );
+
+
+                resolve(false);
+
+            }
+
         });
+
     }
 
-    // বাটন ক্লিক ইভেন্ট
-    watchAdBtn.addEventListener('click', () => showAdsGramAd(false));
 
-    // সাইট লোড হওয়ার সাথে সাথে অটো অ্যাড লোড (সাইলেন্টলি)
-    window.addEventListener('load', () => {
-      showAdsGramAd(true); 
-    });
-  </script>
+
+    /* =====================================================
+       VIDEO CLICK HANDLER
+    ===================================================== */
+
+    async function handleVideoClick(event) {
+
+        /*
+           Card এবং button click একসাথে trigger
+           হওয়া বন্ধ করবে
+        */
+
+        if (event) {
+
+            event.preventDefault();
+
+            event.stopPropagation();
+
+        }
+
+
+        /*
+           একই সময়ে একাধিক click আটকানো
+        */
+
+        if (isProcessing) {
+
+            return;
+
+        }
+
+
+        isProcessing = true;
+
+
+
+        /* =================================================
+           FIRST CLICK
+           Ads Show
+        ================================================= */
+
+        if (!adCompleted) {
+
+            console.log(
+                "👉 First click: Adsgram Ad দেখানো হচ্ছে..."
+            );
+
+
+            loadingOverlay.classList.add("show");
+
+
+            const adResult =
+                await showAdsgramAd();
+
+
+            loadingOverlay.classList.remove("show");
+
+
+            isProcessing = false;
+
+
+            /*
+               Ad সফলভাবে সম্পূর্ণ না হলে
+               এখানেই থামবে
+            */
+
+            if (!adResult) {
+
+                console.log(
+                    "⚠️ Ad সম্পূর্ণ হয়নি। আবার চেষ্টা করুন।"
+                );
+
+                return;
+
+            }
+
+
+            /*
+               Ad সম্পূর্ণ হয়েছে।
+               এখন আবার click করতে হবে।
+            */
+
+            return;
+
+        }
+
+
+
+        /* =================================================
+           SECOND CLICK
+           REDIRECT
+        ================================================= */
+
+        console.log(
+            "👉 Second click: Redirect হচ্ছে..."
+        );
+
+
+        const currentLink =
+            REDIRECT_LINKS[
+                linkIndex %
+                REDIRECT_LINKS.length
+            ];
+
+
+        linkIndex++;
+
+
+        console.log(
+            "➡️ Redirect URL:",
+            currentLink
+        );
+
+
+        /*
+           Redirect
+        */
+
+        window.location.href =
+            currentLink;
+
+
+    }
+
+
+
+    /* =====================================================
+       BUILD VIDEO GALLERY
+    ===================================================== */
+
+    function buildGallery() {
+
+        if (!videoGrid) {
+
+            return;
+
+        }
+
+
+        videoGrid.innerHTML = "";
+
+
+        uniqueImages.forEach(
+            (imgUrl, index) => {
+
+
+                /* ===============================
+                   CARD
+                =============================== */
+
+                const card =
+                    document.createElement("div");
+
+
+                card.className =
+                    "video-card";
+
+
+
+                /* ===============================
+                   THUMBNAIL
+                =============================== */
+
+                const thumbWrapper =
+                    document.createElement("div");
+
+
+                thumbWrapper.className =
+                    "thumbnail-wrapper";
+
+
+
+                /* ===============================
+                   IMAGE
+                =============================== */
+
+                const img =
+                    document.createElement("img");
+
+
+                img.src =
+                    imgUrl;
+
+
+                img.alt =
+                    `Video ${index + 1}`;
+
+
+                img.loading =
+                    "lazy";
+
+
+                /*
+                   Image load error
+                */
+
+                img.onerror =
+                    function() {
+
+                        this.src =
+                            "https://placehold.co/600x400/1e1a2e/ff88aa?text=Image+Not+Found";
+
+                    };
+
+
+
+                /* ===============================
+                   PLAY OVERLAY
+                =============================== */
+
+                const playOverlay =
+                    document.createElement("div");
+
+
+                playOverlay.className =
+                    "play-icon-overlay";
+
+
+                playOverlay.innerHTML = `
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="white"
+                        stroke="white"
+                        stroke-width="1"
+                    >
+
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            fill="rgba(0,0,0,0.5)"
+                            stroke="white"
+                            stroke-width="1.5"
+                        />
+
+                        <polygon
+                            points="10,8 16,12 10,16"
+                            fill="white"
+                        />
+
+                    </svg>
+
+                `;
+
+
+
+                thumbWrapper.appendChild(img);
+
+                thumbWrapper.appendChild(
+                    playOverlay
+                );
+
+
+                card.appendChild(
+                    thumbWrapper
+                );
+
+
+
+                /* ===============================
+                   FOOTER
+                =============================== */
+
+                const footer =
+                    document.createElement("div");
+
+
+                footer.className =
+                    "video-card-footer";
+
+
+
+                /* ===============================
+                   TITLE
+                =============================== */
+
+                const title =
+                    document.createElement("span");
+
+
+                title.className =
+                    "video-title";
+
+
+                title.textContent =
+                    `🎬 ভিডিও ${index + 1}`;
+
+
+
+                /* ===============================
+                   PLAY BUTTON
+                =============================== */
+
+                const playBtn =
+                    document.createElement("button");
+
+
+                playBtn.className =
+                    "play-btn";
+
+
+                playBtn.type =
+                    "button";
+
+
+                playBtn.innerHTML = `
+
+                    <svg viewBox="0 0 24 24">
+
+                        <polygon
+                            points="5,3 19,12 5,21"
+                            fill="white"
+                        />
+
+                    </svg>
+
+                    প্লে ভিডিও
+
+                `;
+
+
+
+                footer.appendChild(title);
+
+                footer.appendChild(playBtn);
+
+
+                card.appendChild(footer);
+
+
+
+                /* ===============================
+                   CLICK EVENT
+                =============================== */
+
+                /*
+                   Card-এর যেকোনো জায়গায় click
+                   করলে Ads/Redirect হবে
+                */
+
+                card.addEventListener(
+                    "click",
+                    handleVideoClick
+                );
+
+
+                /*
+                   Button click আলাদাভাবে
+                   handle করতে হবে না।
+
+                   কারণ card event-ই button click
+                   ধরে ফেলবে।
+
+                   তবে button-এর event propagation
+                   বন্ধ করার জন্য আলাদা listener
+                   ব্যবহার করা হচ্ছে।
+                */
+
+                playBtn.addEventListener(
+                    "click",
+                    function(event) {
+
+                        event.preventDefault();
+
+                        event.stopPropagation();
+
+                        handleVideoClick(event);
+
+                    }
+                );
+
+
+                /*
+                   Gallery-তে card যোগ
+                */
+
+                videoGrid.appendChild(card);
+
+            }
+        );
+
+    }
+
+
+
+    /* =====================================================
+       PAGE LOAD
+    ===================================================== */
+
+    window.addEventListener(
+        "load",
+        function() {
+
+            /*
+               শুধু gallery তৈরি হবে।
+
+               এখানে কোনো Adsgram Ad
+               automaticভাবে চালানো হবে না।
+            */
+
+            buildGallery();
+
+
+            console.log(
+                "✅ Premium Video Hub loaded"
+            );
+
+            console.log(
+                "ℹ️ First click = Adsgram"
+            );
+
+            console.log(
+                "ℹ️ Second click = Redirect"
+            );
+
+        }
+    );
+
+
+
+    /* =====================================================
+       TELEGRAM WEB APP
+    ===================================================== */
+
+    if (
+        window.Telegram &&
+        window.Telegram.WebApp
+    ) {
+
+        window.Telegram.WebApp.ready();
+
+        window.Telegram.WebApp.expand();
+
+    }
+
+</script>
 
 </body>
 </html>
